@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_tela_splash"
+    tools:context=".view.AtualizarFuncionariosActivity">
+
+
+    <TextView android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/atualizar_dados"
+        android:textSize="36dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView android:id="@+id/textIDFuncionario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/id_do_funcionario"
+        android:layout_marginLeft="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText android:id="@+id/edtIDFuncionario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="16sp"
+        android:hint="@string/id_do_funcionario"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textIDFuncionario" />
+
+    <TextView android:id="@+id/textAtualizarNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        android:layout_marginLeft="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtIDFuncionario" />
+
+    <EditText android:id="@+id/edtAtualizarNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="16sp"
+        android:hint="Nome"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAtualizarNome" />
+
+    <TextView android:id="@+id/textAtualizarFuncao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/func_o"
+        android:layout_marginLeft="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAtualizarNome" />
+
+    <EditText android:id="@+id/edtAtualizarFuncao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="16sp"
+        android:hint="@string/func_o"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAtualizarFuncao" />
+
+    <TextView android:id="@+id/textAtualizarSalario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salario"
+        android:layout_marginLeft="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAtualizarFuncao" />
+
+    <EditText android:id="@+id/edtAtualizarSalario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="16sp"
+        android:hint="Salario"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAtualizarSalario" />
+
+    <Button
+        android:id="@+id/btnAtualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/atualizar"
+        android:backgroundTint="#121112"
+        android:layout_margin="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAtualizarSalario"
+        />
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:backgroundTint="#121112"
+        android:layout_margin="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAtualizar"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

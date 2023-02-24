@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_ad_funcionario"
+    tools:context=".view.AdicionarFuncionarioActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView android:id="@+id/txtCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:text="@string/txtCadastro"
+        android:textColor="#073083"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16sp"
+        android:text="@string/txtNome"
+        android:textColor="#073083"
+        android:textStyle="bold" />
+
+    <EditText android:id="@+id/editNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:textSize="20dp"
+        android:hint="@string/txtHintNome"
+        android:inputType="textPersonName" />
+
+    <TextView android:id="@+id/txtSobrenome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="@string/txtSobrenome"
+        android:textColor="#073083"
+        android:textStyle="bold" />
+
+    <EditText android:id="@+id/editSobrenome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8sp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/edtHintSobrenome"
+        android:textSize="20dp"
+        android:inputType="textPersonName" />
+
+    <TextView android:id="@+id/txtFuncao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="@string/txtFuncao"
+        android:textColor="#073083"
+        android:textStyle="bold" />
+
+    <EditText android:id="@+id/editFuncao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/edtFuncao"
+        android:textSize="20dp"
+        android:inputType="textPersonName" />
+
+    <TextView android:id="@+id/txtSalario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="@string/txtSalario"
+        android:textColor="#073083"
+        android:textStyle="bold" />
+
+    <EditText android:id="@+id/editSalario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/edtHintSalario"
+        android:textSize="20dp"
+        android:inputType="number" />
+
+    <TextView android:id="@+id/txTelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="@string/txtTelefone"
+        android:textColor="#073083"
+        android:textStyle="bold" />
+
+    <EditText android:id="@+id/editTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8sp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/telefone"
+        android:textSize="20dp"
+        android:inputType="number" />
+
+    <TextView android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="@string/txtEmail"
+        android:textColor="#073083"
+        android:textStyle="bold" />
+
+    <EditText android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8sp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/edtEmail"
+        android:textSize="20dp"
+        android:inputType="textEmailAddress" />
+
+    <CheckBox android:id="@+id/ckTermos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:onClick="validarTermo"
+        android:layout_marginTop="8dp"
+        android:text="@string/ckbTermo"
+        android:textColor="#073083"
+        android:textStyle="bold" />
+
+    <Button android:id="@+id/btnCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/btnCadastrar"
+        />
+        <Button android:id="@+id/btnVoltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/black"
+            android:text="@string/voltar"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</ScrollView>

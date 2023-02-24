@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Gerenciador FN</string>
+
+    <!-- Tela cadastro de funcionarios -->
+
+    <string name="txtCadastro">Cadastro</string>
+    <string name="txtNome">Nome</string>
+    <string name="txtHintNome">Nome</string>
+    <string name="txtEmail">Email</string>
+    <string name="txtSobrenome">Sobrenome</string>
+    <string name="edtFuncao">Função</string>
+    <string name="txtFuncao">Função</string>
+    <string name="edtHintSobrenome">Sobrenome</string>
+    <string name="txtSalario">Salario</string>
+    <string name="edtHintSalario">Salario</string>
+    <string name="ckbTermo">Termos de uso</string>
+    <string name="btnCadastrar">Cadastrar</string>
+    <string name="telefone">Telefone</string>
+    <string name="txtTelefone">Telefone</string>
+    <string name="txtHintEmail">Email</string>
+    <string name="edtEmail">Email</string>
+    <string name="voltar">Voltar</string>
+
+    <!-- Tela Main Activity -->
+
+    <string name="bem_vindo">Bem vindo</string>
+    <string name="consultar_funcionario">Consultar Funcionario</string>
+    <string name="atualizar_dados_funcionario">Atualizar Dados Funcionario</string>
+
+    <!-- Tela Main Atualizar Dados -->
+    <string name="atualizar_dados">Atualizar Dados</string>
+    <string name="id_do_funcionario">ID do Funcionario</string>
+    <string name="func_o">Funcão</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="listar_funcionarios">Listar Funcionarios</string>
+    <string name="pesquisar_um_nome">Pesquisar um Nome...</string>
+    <string name="funcionario">Funcionario</string>
+
+
+</resources>
