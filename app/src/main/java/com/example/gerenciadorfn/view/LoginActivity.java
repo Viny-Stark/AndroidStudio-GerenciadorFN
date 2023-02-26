@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -24,12 +25,12 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox ckLembrar;
 
     Usuario usuario;
-
     private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
         initFormulario();
@@ -77,9 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         restaurarSharedPreferences();
 
 
-
     }
-
     private boolean validarDados(){
 
         boolean retorno = true;

@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -21,7 +23,7 @@ import com.example.gerenciadorfn.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
-    EditText editNomeCompleto,editCpf,editNomeEmpresa,editCnpj,editEmail,editSenha;
+    EditText editNomeCompleto,editCpf,editNomeEmpresa,editCnpj,editEmail,editSenha,editSenha2;
 
     Button btnCadastro,btnVoltar;
     CheckBox ckTermos;
@@ -35,6 +37,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cadastro_usuario);
 
         initFormulario();
@@ -48,12 +51,33 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 if (dadosOk()){
 
 
+
                         usuarioNovo.setNomeCompleto(editNomeCompleto.getText().toString());
                         usuarioNovo.setCpf(editCpf.getText().toString());
                         usuarioNovo.setNomeDaEmpresa(editNomeEmpresa.getText().toString());
                         usuarioNovo.setCnpj(editCnpj.getText().toString());
                         usuarioNovo.setEmail(editEmail.getText().toString());
                         usuarioNovo.setSenha(editSenha.getText().toString());
+
+                    if(!validarSenha()) {
+                        editSenha.setError(("*"));
+                        editSenha2.setError(("*"));
+                        editSenha.requestFocus();
+
+                        AlertDialog.Builder builder =new AlertDialog.Builder(CadastroUsuarioActivity.this);
+
+                        builder.setTitle("Atenção!");
+                        builder.setMessage("Senhas não conferem");
+                        builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                    }
+                                });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+
+
+                    }else{
 
                         controller.incluir(usuarioNovo);
 
@@ -62,7 +86,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                         Intent intent = new Intent(CadastroUsuarioActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-
+                    }
                 }
             }
         });
@@ -157,6 +181,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         editCnpj = findViewById(R.id.editCnpj);
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.editSenha);
+        editSenha2 = findViewById(R.id.editSenha2);
         btnCadastro = findViewById(R.id.btnCadastro);
         btnVoltar = findViewById(R.id.btnVoltar);
         ckTermos = findViewById(R.id.ckTermos);
@@ -184,6 +209,20 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         dados.putString("senha",editSenha.getText().toString());
         dados.apply();
 
+    }
+    public  boolean validarSenha(){
+
+        boolean retorno = false;
+
+        int senhaA, senhaB;
+
+        senhaA = Integer.parseInt(editSenha.getText().toString());
+        senhaB = Integer.parseInt(editSenha2.getText().toString());
+
+        retorno = (senhaA == senhaB);
+
+
+        return retorno;
     }
 
 
