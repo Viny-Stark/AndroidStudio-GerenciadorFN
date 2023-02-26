@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText editEmailLogin,editSenhaL;
     Button btnLogin,btnCadastrar;
+    CheckBox ckLembrar;
 
     Usuario usuario;
 
@@ -68,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         editSenhaL=findViewById(R.id.editSenhaL);
         btnLogin=findViewById(R.id.btnLogin);
         btnCadastrar=findViewById(R.id.btnCadastrar);
+        ckLembrar=findViewById(R.id.ckLembrar);
 
         usuario = new Usuario();
 
@@ -117,8 +120,6 @@ public class LoginActivity extends AppCompatActivity {
 
         usuario.setEmail(preferences.getString("email", "teste@teste.com"));
         usuario.setSenha(preferences.getString("senha", "12345"));
-
-
 
 
     }

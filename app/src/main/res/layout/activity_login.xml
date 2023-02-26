@@ -73,6 +73,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:onClick="lembrarSenha"
             android:layout_gravity="center_horizontal"
             android:text="Lembra Senha"
             android:textStyle="bold" />

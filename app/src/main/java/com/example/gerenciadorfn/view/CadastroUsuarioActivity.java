@@ -1,14 +1,18 @@
 package com.example.gerenciadorfn.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.gerenciadorfn.R;
 import com.example.gerenciadorfn.api.AppUtil;
@@ -20,6 +24,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     EditText editNomeCompleto,editCpf,editNomeEmpresa,editCnpj,editEmail,editSenha;
 
     Button btnCadastro,btnVoltar;
+    CheckBox ckTermos;
 
     Usuario usuarioNovo;
 
@@ -42,20 +47,22 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
                 if (dadosOk()){
 
-                    usuarioNovo.setNomeCompleto(editNomeCompleto.getText().toString());
-                    usuarioNovo.setCpf(editCpf.getText().toString());
-                    usuarioNovo.setNomeDaEmpresa(editNomeEmpresa.getText().toString());
-                    usuarioNovo.setCnpj(editCnpj.getText().toString());
-                    usuarioNovo.setEmail(editEmail.getText().toString());
-                    usuarioNovo.setSenha(editSenha.getText().toString());
 
-                    controller.incluir(usuarioNovo);
+                        usuarioNovo.setNomeCompleto(editNomeCompleto.getText().toString());
+                        usuarioNovo.setCpf(editCpf.getText().toString());
+                        usuarioNovo.setNomeDaEmpresa(editNomeEmpresa.getText().toString());
+                        usuarioNovo.setCnpj(editCnpj.getText().toString());
+                        usuarioNovo.setEmail(editEmail.getText().toString());
+                        usuarioNovo.setSenha(editSenha.getText().toString());
 
-                    salvarSharedPreferences();
+                        controller.incluir(usuarioNovo);
 
-                    Intent intent=new Intent(CadastroUsuarioActivity.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                        salvarSharedPreferences();
+
+                        Intent intent = new Intent(CadastroUsuarioActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
                 }
             }
         });
@@ -68,6 +75,35 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
+        });
+
+        ckTermos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alerta =new AlertDialog.Builder(CadastroUsuarioActivity.this);
+                alerta.setTitle("Termos de USO");
+                alerta
+                        .setMessage("Concorda com o termo sei la 123 69?")
+                        .setCancelable(false)
+                        .setNegativeButton("Discordo", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(getApplicationContext(),
+                                        "E preciso CONCORDA para continuar o cadastro",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setPositiveButton("Concordo", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getApplicationContext(), "Concordo escolhido", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog alertDialog = alerta.create();
+                alertDialog.show();
+
+            }
+
         });
 
     }
@@ -105,6 +141,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             editSenha.requestFocus();
             retorno =false;
         }
+        if (!ckTermos.isChecked()) {
+            ckTermos.setError("E Necessario Aceitar os Termos de Uso");
+            ckTermos.requestFocus();
+            retorno= false;
+        }
         return retorno;
     }
 
@@ -118,10 +159,21 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         editSenha = findViewById(R.id.editSenha);
         btnCadastro = findViewById(R.id.btnCadastro);
         btnVoltar = findViewById(R.id.btnVoltar);
+        ckTermos = findViewById(R.id.ckTermos);
 
         usuarioNovo = new Usuario();
 
         controller = new UsuarioController(this);
+    }
+    public void validarTermo(View view) {
+
+        if (!ckTermos.isChecked()) {
+
+            Toast.makeText(getApplicationContext(),
+                    "É nessário aceitar os termos de uso para continuar o cadastro...",
+                    Toast.LENGTH_LONG).show();
+        }
+
     }
     private void salvarSharedPreferences() {
 
