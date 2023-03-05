@@ -112,16 +112,16 @@ public class FuncionarioAdapter extends RecyclerView.Adapter <FuncionarioAdapter
 
 
                 Log.i(AppUtil.LOG_APP,
-                        "Cliente ID "+ position +" Nome: "+funcionarioSelecionado.getNome() +
+                        "Funcionario ID "+ position +" Nome: "+funcionarioSelecionado.getNome() +
                                 " Funcao: " +funcionarioSelecionado.getFuncao());
 
                 chamarIntent();
 
 
                 /*Toast.makeText(aContext,
-                        "Cliente ID "+ position +" Nome: "+funcionarioSelecionado.getNome() +
-                                " Funcao: " + funcionarioSelecionado.getFuncao(),
-                        Toast.LENGTH_LONG).show();*/
+                        "Funcionario ID: "+ position  +
+                                "/ Nome: "+ funcionarioSelecionado.getNome(),
+                        Toast.LENGTH_LONG).show()*/;
             }
         }
 
