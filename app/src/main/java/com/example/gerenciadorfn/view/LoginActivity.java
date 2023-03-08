@@ -2,8 +2,11 @@ package com.example.gerenciadorfn.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -25,7 +28,12 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox ckLembrar;
 
     Usuario usuario;
+    SQLiteDatabase db;
+
+    AppDataBase base;
     private SharedPreferences preferences;
+
+    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +41,41 @@ public class LoginActivity extends AppCompatActivity {
         this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
+
         initFormulario();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email=editEmailLogin.getText().toString();
+                String senha=editSenhaL.getText().toString();
+
+                if(!email.equals("") && !senha.equals("")){
+                    boolean res=base.ValidarUsuario(email,senha);
+                    if(res) {
+                        Toast.makeText(LoginActivity.this, "Bem vindo" + email, Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent(LoginActivity.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Toast.makeText(LoginActivity.this,"Email ou senha incorretos",Toast.LENGTH_LONG).show();
+
+                    }
+                }else{
+                    Toast.makeText(LoginActivity.this,"Preencha todos os campos",Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+
+        /*btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if(validarDados() ) {
 
 
-                    if (validarDadosDoUsuario()) {
+                    if (validarDadosDoUsuario() ) {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         return;
@@ -53,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
             }
-        });
+        });*/
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
         ckLembrar=findViewById(R.id.ckLembrar);
 
         usuario = new Usuario();
+
+        base = new AppDataBase(this);
 
         restaurarSharedPreferences();
 
@@ -119,9 +154,8 @@ public class LoginActivity extends AppCompatActivity {
 
         usuario.setEmail(preferences.getString("email", "teste@teste.com"));
         usuario.setSenha(preferences.getString("senha", "12345"));
-
-
     }
+
 
 
 }

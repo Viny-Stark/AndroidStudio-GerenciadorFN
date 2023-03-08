@@ -3,6 +3,7 @@ package com.example.gerenciadorfn.api;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,6 +16,7 @@ import com.example.gerenciadorfn.datamodel.FuncionarioDataModel;
 import com.example.gerenciadorfn.datamodel.UsuarioDataModel;
 import com.example.gerenciadorfn.model.Funcionario;
 import com.example.gerenciadorfn.model.Usuario;
+import com.example.gerenciadorfn.view.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,6 @@ public  class AppDataBase extends SQLiteOpenHelper {
         db = getWritableDatabase();
 
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Criar as tabelas
@@ -162,6 +163,20 @@ public  class AppDataBase extends SQLiteOpenHelper {
 
         return list;
     }
+    public boolean ValidarUsuario(String email,String senha){
+
+        SQLiteDatabase db=getReadableDatabase();
+        Cursor c=db.rawQuery("SELECT * FROM usuarios WHERE email=? AND senha=?"
+       ,new String[]{email,senha} );
+        c.moveToFirst();
+
+        if (c.getCount() > 0)
+                return true;
+            return false;
+        }
+
+
+
 
     
 
