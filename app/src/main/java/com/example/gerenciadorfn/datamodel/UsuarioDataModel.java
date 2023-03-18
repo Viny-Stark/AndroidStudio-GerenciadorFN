@@ -13,6 +13,7 @@ public class UsuarioDataModel  {
     public static final String CPF = "cpf";
     public static final String NOME_DA_EMPRESA = "nomeDaEmpresa";
     public static final String  CNPJ = "cnpj";
+    public static final String USUARIO="usuario";
 
     public static final String EMAIL = "email";
     public static final String SENHA = "senha";
@@ -29,6 +30,7 @@ public class UsuarioDataModel  {
         query += NOME_DA_EMPRESA+" TEXT, ";
         query += CNPJ+" TEXT, ";
         query += EMAIL+" TEXT, ";
+        query += USUARIO+" TEXT, ";
         query += SENHA+" TEXT ";
 
         query += ")";

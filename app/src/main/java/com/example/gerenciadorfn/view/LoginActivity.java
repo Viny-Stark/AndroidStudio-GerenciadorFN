@@ -51,14 +51,14 @@ public class LoginActivity extends AppCompatActivity {
                 String senha=editSenha.getText().toString();
 
                 if(!usuario.equals("") && !senha.equals("")){
-                    boolean res=base.ValidarUsuario(usuario,senha);
+                    boolean res=base.validarUsuario(usuario,senha);
                     if(res) {
                         Toast.makeText(LoginActivity.this, "Bem vindo " + usuario, Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(intent);
                         finish();
                     }else {
-                        Toast.makeText(LoginActivity.this,"Email ou senha incorretos",Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this,"Usuario ou senha incorretos",Toast.LENGTH_LONG).show();
 
                     }
                 }else{

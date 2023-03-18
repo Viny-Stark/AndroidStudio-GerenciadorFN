@@ -23,7 +23,7 @@ import com.example.gerenciadorfn.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
-    EditText editNomeCompleto,editCpf,editNomeEmpresa,editCnpj,editEmail,editSenha,editSenha2;
+    EditText editNomeCompleto,editCpf,editNomeEmpresa,editCnpj,editEmail,editUsuario,editSenha,editSenha2;
 
     Button btnCadastro,btnVoltar;
     CheckBox ckTermos;
@@ -50,13 +50,12 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
                 if (dadosOk()){
 
-
-
                         usuarioNovo.setNomeCompleto(editNomeCompleto.getText().toString());
                         usuarioNovo.setCpf(editCpf.getText().toString());
                         usuarioNovo.setNomeDaEmpresa(editNomeEmpresa.getText().toString());
                         usuarioNovo.setCnpj(editCnpj.getText().toString());
                         usuarioNovo.setEmail(editEmail.getText().toString());
+                        usuarioNovo.setUsuario(editUsuario.getText().toString());
                         usuarioNovo.setSenha(editSenha.getText().toString());
 
                     if(!validarSenha()) {
@@ -80,8 +79,6 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                     }else{
 
                         controller.incluir(usuarioNovo);
-
-                        salvarSharedPreferences();
 
                         Intent intent = new Intent(CadastroUsuarioActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -160,6 +157,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             editEmail.requestFocus();
             retorno =false;
         }
+        if(TextUtils.isEmpty(editUsuario.getText().toString())){
+            editUsuario.setError("*");
+            editUsuario.requestFocus();
+            retorno =false;
+        }
         if(TextUtils.isEmpty(editSenha.getText().toString())){
             editSenha.setError("*");
             editSenha.requestFocus();
@@ -180,6 +182,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         editNomeEmpresa = findViewById(R.id.editNomeEmpresa);
         editCnpj = findViewById(R.id.editCnpj);
         editEmail = findViewById(R.id.editEmail);
+        editUsuario = findViewById(R.id.editUsuario);
         editSenha = findViewById(R.id.editSenha);
         editSenha2 = findViewById(R.id.editSenha2);
         btnCadastro = findViewById(R.id.btnCadastro);

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public  class AppDataBase extends SQLiteOpenHelper {
-    private static final String DB_NAME = "funcionarioDB.sqlite";
+    private static final String DB_NAME = "GerenciadorFN.sqlite";
     private static final int DB_VERSION = 1;
 
     Cursor cursor;
@@ -163,11 +163,11 @@ public  class AppDataBase extends SQLiteOpenHelper {
 
         return list;
     }
-    public boolean ValidarUsuario(String email,String senha){
+    public boolean validarUsuario(String usuario,String senha){
 
         SQLiteDatabase db=getReadableDatabase();
-        Cursor c=db.rawQuery("SELECT * FROM usuarios WHERE email=? AND senha=?"
-       ,new String[]{email,senha} );
+        Cursor c=db.rawQuery("SELECT * FROM usuarios WHERE usuario=? AND senha=?"
+       ,new String[]{usuario,senha} );
         c.moveToFirst();
 
         return c.getCount() > 0;

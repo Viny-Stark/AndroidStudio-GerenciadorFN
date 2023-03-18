@@ -7,8 +7,18 @@ public class Usuario {
     private String cpf;
     private String nomeDaEmpresa;
     private String cnpj;
+
+    private String usuario;
     private String email;
     private String senha;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
     public int getID() {
         return ID;

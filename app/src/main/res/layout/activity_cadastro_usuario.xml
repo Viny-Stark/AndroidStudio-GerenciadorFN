@@ -118,6 +118,25 @@
             android:textSize="20dp"
             android:inputType="textEmailAddress" />
 
+        <TextView android:id="@+id/txUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Usuario"
+            android:textColor="#073083"
+            android:textStyle="bold" />
+
+        <EditText android:id="@+id/editUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8sp"
+            android:layout_marginRight="16dp"
+            android:ems="10"
+            android:hint="Usuario"
+            android:textSize="20dp"
+            android:inputType="textEmailAddress" />
+
         <TextView android:id="@+id/txtSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

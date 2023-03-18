@@ -30,6 +30,7 @@ public class UsuarioController extends AppDataBase {
         dados.put(UsuarioDataModel.NOME_DA_EMPRESA, obj.getNomeDaEmpresa());
         dados.put(UsuarioDataModel.CNPJ, obj.getCnpj());
         dados.put(UsuarioDataModel.EMAIL, obj.getEmail());
+        dados.put(UsuarioDataModel.USUARIO, obj.getUsuario());
         dados.put(UsuarioDataModel.SENHA, obj.getSenha());
 
         return  insert(TABELA, dados);
