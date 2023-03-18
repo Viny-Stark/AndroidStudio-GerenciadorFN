@@ -3,8 +3,8 @@
     android:shape="rectangle">
 
     <gradient
-        android:endColor="#68000000"
-        android:startColor="#0E4965"
+        android:startColor="#21239B"
+        android:endColor="#21239B"
         android:type="linear"
         android:angle="90"> <!-- Change this value to have the correct shadow angle, must be multiple from 45 -->
     </gradient>

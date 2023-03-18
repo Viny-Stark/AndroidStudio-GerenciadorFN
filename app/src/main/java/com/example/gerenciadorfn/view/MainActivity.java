@@ -9,14 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gerenciadorfn.R;
+import com.example.gerenciadorfn.api.AppDataBase;
 import com.example.gerenciadorfn.api.AppUtil;
 import com.example.gerenciadorfn.controller.FuncionarioController;
 import com.example.gerenciadorfn.model.Funcionario;
+import com.example.gerenciadorfn.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +27,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Button btnConsultarFuncionario,btnAdicionarFuncionario,btnAtualizarDadosFuncionario;
+    TextView somaSalariosTextView,txtBemVindo;
 
     //Teste do LongClick
     Button btnTestOnLongClick;
 
     FuncionarioController funcionarioController;
+
+    Usuario usuario;
+
+    AppDataBase base;
 
     Funcionario funcionario;
 
@@ -85,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this);
 
 
-                Intent intent = new Intent(MainActivity.this,SplashActivity.class);
+                Intent intent = new Intent(MainActivity.this,MainActivity.class);
                 startActivity(intent);
 
                 Toast.makeText(MainActivity.this,"OnLongClick Funcional",Toast.LENGTH_LONG).show();
@@ -94,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        double somaSalarios = base.calcularSomaSalarios();
+        somaSalariosTextView.setText("Soma dos salários: " + somaSalarios);
+
+
+        txtBemVindo.setText("Bem vindo! " );
 
     }
 
@@ -103,10 +116,15 @@ public class MainActivity extends AppCompatActivity {
         btnAdicionarFuncionario=findViewById(R.id.btnAdicionarFuncionario);
         btnAtualizarDadosFuncionario=findViewById(R.id.btnAtualizarDadosFuncionario);
         btnTestOnLongClick=findViewById(R.id.btnTestOnLongClick);
+        somaSalariosTextView = findViewById(R.id.soma_salarios_textview);
+        txtBemVindo = findViewById(R.id.txtBemVindo);
+
+        usuario= new Usuario();
 
         funcionario=new Funcionario();
 
         funcionarioController=new FuncionarioController(getApplicationContext());
+        base= new AppDataBase(this);
 
 
 

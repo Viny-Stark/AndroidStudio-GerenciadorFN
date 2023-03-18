@@ -170,11 +170,18 @@ public  class AppDataBase extends SQLiteOpenHelper {
        ,new String[]{email,senha} );
         c.moveToFirst();
 
-        if (c.getCount() > 0)
-                return true;
-            return false;
+        return c.getCount() > 0;
+    }
+    public double calcularSomaSalarios() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT SUM(salario) FROM funcionarios", null);
+        double soma = 0;
+        if (c.moveToFirst()) {
+            soma = c.getDouble(0);
         }
-
+        c.close();
+        return soma;
+    }
 
 
 
