@@ -25,7 +25,7 @@
 
     <string name="bem_vindo">Bem vindo</string>
     <string name="consultar_funcionario">Consultar Funcionario</string>
-    <string name="atualizar_dados_funcionario">Atualizar Dados Funcionario</string>
+    <string name="atualizar_dados_funcionario">Atualizar Funcionario</string>
 
     <!-- Tela Main Atualizar Dados -->
     <string name="atualizar_dados">Atualizar Dados</string>

@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroud_login"
     tools:context=".view.LoginActivity">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
         android:background="@drawable/backgroud_login"
         android:gravity="center"
         android:orientation="vertical">
@@ -18,7 +16,6 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:src="@mipmap/ic_launcher" />
 
         <!-- perfil -->

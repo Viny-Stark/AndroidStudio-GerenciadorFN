@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         double somaSalarios = base.calcularSomaSalarios();
-        somaSalariosTextView.setText("Soma dos salários: " + somaSalarios);
+        somaSalariosTextView.setText("Gastos Mensais com Funcionarios: " + somaSalarios);
 
 
         txtBemVindo.setText("Bem vindo! " );
