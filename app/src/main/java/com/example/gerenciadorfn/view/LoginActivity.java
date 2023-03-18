@@ -23,7 +23,7 @@ import com.example.gerenciadorfn.model.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText editEmailLogin,editSenhaL;
+    EditText editUsuario,editSenha;
     Button btnLogin,btnCadastrar;
     CheckBox ckLembrar;
 
@@ -47,13 +47,13 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email=editEmailLogin.getText().toString();
-                String senha=editSenhaL.getText().toString();
+                String usuario=editUsuario.getText().toString();
+                String senha=editSenha.getText().toString();
 
-                if(!email.equals("") && !senha.equals("")){
-                    boolean res=base.ValidarUsuario(email,senha);
+                if(!usuario.equals("") && !senha.equals("")){
+                    boolean res=base.ValidarUsuario(usuario,senha);
                     if(res) {
-                        Toast.makeText(LoginActivity.this, "Bem vindo" + email, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Bem vindo " + usuario, Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -68,26 +68,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /*btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(validarDados() ) {
-
-
-                    if (validarDadosDoUsuario() ) {
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        return;
-                    }else{
-                        Toast.makeText(LoginActivity.this,
-                                "Senha ou Email não conferem",
-                                Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-        });*/
-
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,17 +80,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initFormulario() {
 
-        editEmailLogin=findViewById(R.id.editEmailLogin);
-        editSenhaL=findViewById(R.id.editSenhaL);
+        editUsuario=findViewById(R.id.editUsuario);
+        editSenha=findViewById(R.id.editSenha);
         btnLogin=findViewById(R.id.btnLogin);
         btnCadastrar=findViewById(R.id.btnCadastrar);
-        ckLembrar=findViewById(R.id.ckLembrar);
 
         usuario = new Usuario();
 
         base = new AppDataBase(this);
-
-        restaurarSharedPreferences();
 
 
     }
@@ -118,43 +95,20 @@ public class LoginActivity extends AppCompatActivity {
 
         boolean retorno = true;
 
-        if(TextUtils.isEmpty(editEmailLogin.getText().toString())){
-            editEmailLogin.setError("*");
-            editEmailLogin.requestFocus();
+        if(TextUtils.isEmpty(editUsuario.getText().toString())){
+            editUsuario.setError("*");
+            editUsuario.requestFocus();
             retorno=false;
         }
-        if(TextUtils.isEmpty(editSenhaL.getText().toString())){
-            editSenhaL.setError("*");
-            editSenhaL.requestFocus();
+        if(TextUtils.isEmpty(editSenha.getText().toString())){
+            editSenha.setError("*");
+            editSenha.requestFocus();
             retorno=false;
         }
 
         return  retorno;
     }
-    public boolean validarDadosDoUsuario() {
 
-        boolean retorno = false;
-
-        // comparar as senhas
-
-        String senhaDigitadaPura = editSenhaL.getText().toString();
-        String senhaMD5 = usuario.getSenha();
-
-        if(senhaMD5.equals((senhaDigitadaPura))){
-            retorno = true;
-        }
-
-
-        return retorno;
-
-    }
-    private void restaurarSharedPreferences() {
-
-        preferences = getSharedPreferences(AppUtil.LOG_APP, MODE_PRIVATE);
-
-        usuario.setEmail(preferences.getString("email", "teste@teste.com"));
-        usuario.setSenha(preferences.getString("senha", "12345"));
-    }
 
 
 
