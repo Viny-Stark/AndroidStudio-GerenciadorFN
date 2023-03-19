@@ -1,6 +1,9 @@
 package com.example.gerenciadorfn.api;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gerenciadorfn.R;
 import com.example.gerenciadorfn.model.Funcionario;
+import com.example.gerenciadorfn.view.CadastroUsuarioActivity;
 import com.example.gerenciadorfn.view.MainActivity;
 import com.example.gerenciadorfn.view.SplashActivity;
 
@@ -61,6 +65,7 @@ public class FuncionarioAdapter extends RecyclerView.Adapter <FuncionarioAdapter
         TextView txtSalario = holder.rvSalario;
         txtSalario.setText(objDaLinha.getSalario());
 
+
     }
 
     @Override
@@ -79,6 +84,7 @@ public class FuncionarioAdapter extends RecyclerView.Adapter <FuncionarioAdapter
 
 
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -86,6 +92,7 @@ public class FuncionarioAdapter extends RecyclerView.Adapter <FuncionarioAdapter
             rvNome = itemView.findViewById(R.id.rvNome);
             rvFuncao= itemView.findViewById(R.id.rvFuncao);
             rvSalario= itemView.findViewById(R.id.rvSalario);
+
 
 
 
@@ -108,30 +115,18 @@ public class FuncionarioAdapter extends RecyclerView.Adapter <FuncionarioAdapter
 
             if(position != RecyclerView.NO_POSITION){
 
-
-
-
                 Log.i(AppUtil.LOG_APP,
                         "Funcionario ID "+ position +" Nome: "+funcionarioSelecionado.getNome() +
                                 " Funcao: " +funcionarioSelecionado.getFuncao());
 
-                chamarIntent();
 
+               }
 
-                /*Toast.makeText(aContext,
-                        "Funcionario ID: "+ position  +
-                                "/ Nome: "+ funcionarioSelecionado.getNome(),
-                        Toast.LENGTH_LONG).show()*/;
-            }
+        }
         }
 
-    }
 
-    public void  chamarIntent(){
 
-        Intent intent=new Intent(aContext,MainActivity.class);
-        aContext.startActivity(intent);
-    }
 
 
 }

@@ -36,5 +36,8 @@
     <string name="pesquisar_um_nome">Pesquisar um Nome...</string>
     <string name="funcionario">Funcionario</string>
 
+    <!-- Layout Consultar Funcionarios -->
+    <string name="consultar_funcionarios_voltar">Voltar</string>
+
 
 </resources>

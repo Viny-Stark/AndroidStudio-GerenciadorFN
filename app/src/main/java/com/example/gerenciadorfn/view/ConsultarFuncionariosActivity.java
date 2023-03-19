@@ -1,10 +1,13 @@
 package com.example.gerenciadorfn.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -27,10 +30,8 @@ public class ConsultarFuncionariosActivity extends AppCompatActivity {
 
     FuncionarioAdapter adapter;
 
+    Button btnV;
     FuncionarioController controller;
-
-    Button rvVoltar;
-
 
     RecyclerView rvFuncionarios;
     @Override
@@ -39,7 +40,35 @@ public class ConsultarFuncionariosActivity extends AppCompatActivity {
         this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_consultar_funcionarios);
 
+        initComponetes();
 
+        btnV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder =new AlertDialog.Builder(ConsultarFuncionariosActivity.this);
+
+                builder.setTitle("Deseja mesmo Voltar?");
+                builder.setMessage("Voltar ao Menu Principal");
+                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Intent IntVoltar= new Intent(ConsultarFuncionariosActivity.this,MainActivity.class);
+                        startActivity(IntVoltar);
+                        return;
+                    }
+                });
+                builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
 
 
         rvFuncionarios = findViewById(R.id.rvFuncionarios);
@@ -54,9 +83,12 @@ public class ConsultarFuncionariosActivity extends AppCompatActivity {
 
         rvFuncionarios.setLayoutManager(new LinearLayoutManager(this));
 
-
-
         }
+
+    private void initComponetes() {
+
+        btnV=findViewById(R.id.btnV);
+    }
 
 
 }

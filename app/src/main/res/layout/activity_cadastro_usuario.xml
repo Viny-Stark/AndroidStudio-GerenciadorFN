@@ -5,7 +5,7 @@
     android:layout_margin="5dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background_ad_funcionario"
+    android:background="@drawable/backgroud_login"
     tools:context=".view.AdicionarFuncionarioActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -19,7 +19,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:text="@string/txtCadastro"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16sp"
             android:text="Nome Completo"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editNomeCompleto"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="CPF"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editCpf"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="Empresa"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editNomeEmpresa"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="CNPJ"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editCnpj"
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="Email"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editEmail"
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="Usuario"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editUsuario"
@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="Senha"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editSenha"
@@ -160,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="Repitir Senha"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <EditText android:id="@+id/editSenha2"
@@ -181,7 +181,7 @@
             android:onClick="validarTermo"
             android:layout_marginTop="8dp"
             android:text="@string/ckbTermo"
-            android:textColor="#073083"
+            android:textColor="#37A748"
             android:textStyle="bold" />
 
         <Button android:id="@+id/btnCadastro"

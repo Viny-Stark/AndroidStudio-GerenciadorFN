@@ -22,7 +22,7 @@ import com.example.gerenciadorfn.model.Funcionario;
 public class AdicionarFuncionarioActivity extends AppCompatActivity {
 
     EditText editNome,editSobrenome,editFuncao,editSalario,editTelefone,editEmail;
-    CheckBox ckTermos;
+    
 
     Button btnCadastro,btnVoltar;
 
@@ -95,34 +95,7 @@ public class AdicionarFuncionarioActivity extends AppCompatActivity {
 
 
 
-        ckTermos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder alerta =new AlertDialog.Builder(AdicionarFuncionarioActivity.this
-                        /*teste background*/ /* ,android.R.style.ThemeOverlay_Material_Dark_ActionBar*/);
-                alerta.setTitle("Termos de USO");
-                alerta
-                        .setMessage("Concorda com o termo sei la 123 69?")
-                        .setCancelable(false)
-                        .setNegativeButton("Discordo", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(getApplicationContext(),
-                                        "E preciso CONCORDA para continuar o cadastro",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .setPositiveButton("Concordo", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                //Toast.makeText(getApplicationContext(), "Concordo escolhido", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                AlertDialog alertDialog = alerta.create();
-                alertDialog.show();
 
-            }
-        });
         
     }
     private void initFormulario() {
@@ -133,7 +106,6 @@ public class AdicionarFuncionarioActivity extends AppCompatActivity {
         editSalario=findViewById(R.id.editSalario);
         editTelefone=findViewById(R.id.editTelefone);
         editEmail=findViewById(R.id.editEmail);
-        ckTermos=findViewById(R.id.ckTermos);
         btnCadastro=findViewById(R.id.btnCadastro);
         btnVoltar=findViewById(R.id.btnVoltar);
 
